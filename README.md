@@ -1,3 +1,4 @@
-#stable-diffusion-docker
+# stable-diffusion-docker
 
-repo for playing around with dockerized stable diffusion
+Repo for playing around with dockerized stable diffusion.
+Assumes model.ckpt file is in the root directory.

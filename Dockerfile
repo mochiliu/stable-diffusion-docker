@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-runtime
+FROM pytorch/pytorch:1.12.0-cuda11.3-cudnn8-runtime
 
 # Instal basic utilities
 RUN apt-get update && \
@@ -9,8 +9,15 @@ RUN apt-get update && \
 COPY ./requirements.txt /requirements.txt
 
 RUN python -m pip install -r /requirements.txt
+RUN git clone https://github.com/basujindal/stable-diffusion && \
+    cd stable-diffusion && \
+    rmdir src/clip src/taming-transformers && \
+    python -m pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers && \
+    python -m pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip && \
+    git clone https://github.com/crowsonkb/k-diffusion.git src/k-diffusion && \
+    python -m pip install src/k-diffusion
 
-#RUN git clone https://github.com/openai/CLIP
+#https://github.com/openai/CLIP
 ## RUN git clone https://github.com/facebookresearch/SLIP.git
 #RUN git clone https://github.com/crowsonkb/guided-diffusion
 #RUN git clone https://github.com/assafshocher/ResizeRight.git
