@@ -9,7 +9,9 @@ RUN apt-get update && \
 COPY ./requirements.txt /requirements.txt
 
 RUN python -m pip install -r /requirements.txt
-RUN git clone https://github.com/basujindal/stable-diffusion && \
+RUN mkdir repos && \
+    cd repos && \
+    git clone https://github.com/basujindal/stable-diffusion && \
     cd stable-diffusion && \
     rmdir src/clip src/taming-transformers && \
     python -m pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers && \

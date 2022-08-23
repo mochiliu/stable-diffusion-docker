@@ -8,4 +8,4 @@ build:  ## build image
 	@docker build -t stable-diffusion .
 
 start:  ## start containerized gpu research
-	@docker run --rm --gpus 'device=1' -p 8888:8888 -v /home/mochi/github/stable-diffusion-docker/:/workspace/ -it stable-diffusion
+	@docker run --rm --gpus 'device=1' -p 8888:8888 -v /home/mochi/github/stable-diffusion-docker/:/mnt/ -it stable-diffusion
