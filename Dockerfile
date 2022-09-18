@@ -14,7 +14,11 @@ RUN python -m pip install -r /requirements.txt && \
     python -m pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers && \
     python -m pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip && \
     git clone https://github.com/crowsonkb/k-diffusion.git src/k-diffusion && \
-    python -m pip install src/k-diffusion
+    python -m pip install src/k-diffusion && \
+    git clone https://github.com/shariqfarooq123/AdaBins && \
+    git clone https://github.com/isl-org/MiDaS && \
+    git clone https://github.com/MSFTserver/pytorch3d-lite
+
 COPY ./dry_run_for_downloading_models.py /workspace/stable-diffusion/dry_run_for_downloading_models.py
 RUN python /workspace/stable-diffusion/dry_run_for_downloading_models.py
 COPY start_jupyter.sh jupyter_notebook_config.json /workspace/
