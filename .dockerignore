@@ -1,7 +1,12 @@
 __pycache__
 *.ckpt
 *.png
+*.mp3
 models/**/*
 models/
 output/**/*
 output
+pretrained
+pretrained/**/*
+music/
+msuic/**/*
