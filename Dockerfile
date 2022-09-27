@@ -9,17 +9,11 @@ RUN apt-get update && \
 
 COPY ./requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt && \
-    git clone https://github.com/mochiliu/stable-diffusion && \
-    cd stable-diffusion && \
+    git clone https://github.com/mochiliu/Dreambooth-SD-optimized && \
+    cd Dreambooth-SD-optimized && \
     python -m pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers && \
     python -m pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip && \
     git clone https://github.com/crowsonkb/k-diffusion.git src/k-diffusion && \
-    python -m pip install src/k-diffusion && \
-    git clone https://github.com/shariqfarooq123/AdaBins && \
-    git clone https://github.com/isl-org/MiDaS && \
-    git clone https://github.com/MSFTserver/pytorch3d-lite && \
-    python -m pip install git+https://github.com/openai/whisper.git
-COPY ./dry_run_for_downloading_models.py /workspace/stable-diffusion/dry_run_for_downloading_models.py
-RUN python /workspace/stable-diffusion/dry_run_for_downloading_models.py
+    python -m pip install src/k-diffusion
 COPY start_jupyter.sh jupyter_notebook_config.json /workspace/
 CMD /workspace/start_jupyter.sh
