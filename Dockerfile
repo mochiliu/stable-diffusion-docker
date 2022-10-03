@@ -16,4 +16,4 @@ RUN python -m pip install -r /requirements.txt && \
     git clone https://github.com/crowsonkb/k-diffusion.git src/k-diffusion && \
     python -m pip install src/k-diffusion
 COPY start_jupyter.sh jupyter_notebook_config.json /workspace/
-CMD /workspace/start_jupyter.sh
+#CMD /workspace/start_jupyter.sh
