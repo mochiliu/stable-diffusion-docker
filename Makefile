@@ -6,7 +6,7 @@ help:  ## describe make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 build:  ## build image
-	@docker build --no-cache -t stable-diffusion .
+	@docker build -t stable-service .
 
 start:  ## start containerized gpu research
-	@docker run --rm --gpus 'device=1' -p 8888:8888 -v $(ROOT_DIR)/:/workspace/mnt/ -it stable-diffusion
+	@docker run --rm --gpus 'device=1' -p 9999:9999 -v $(ROOT_DIR)/:/workspace/mnt/ -it stable-service

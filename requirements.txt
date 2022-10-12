@@ -43,3 +43,7 @@ torchdiffeq
 #torchtext==0.13.0
 ipywidgets>=7,<8
 pytube==12.1.0
+
+papermill
+pygsheets
+sendgrid
