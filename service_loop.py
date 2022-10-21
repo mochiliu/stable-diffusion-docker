@@ -175,7 +175,7 @@ while True: # loop forever
                 
                 link = f'https://drive.google.com/drive/folders/{new_folder_id}'
                 #send notification email
-                send_email(job_row.email, link, output_file)
+                send_email(job_row.email, link, f"{output_file}: {job_row.comment}")
                 
                 #log
                 gdrive_link.append(link)

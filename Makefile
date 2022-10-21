@@ -9,4 +9,4 @@ build:  ## build image
 	@docker build -t stable-service .
 
 start:  ## start containerized gpu research
-	@docker run --rm --gpus 'device=1' -p 9999:9999 -v $(ROOT_DIR)/:/workspace/mnt/ -it stable-service
+	@docker run --rm --gpus 'device=0' -p 9999:9999 -v $(ROOT_DIR)/:/workspace/mnt/ -it stable-service
