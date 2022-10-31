@@ -9,4 +9,4 @@ build:  ## build image
 	@docker build -t dream-booth .
 
 start:  ## start containerized gpu research
-	@docker run --rm --gpus 'device=1' -p 9999:9999 -v $(ROOT_DIR)/:/workspace/mnt/ -it dream-booth
+	@docker run --rm --gpus 'device=0' -p 9999:9999 -v $(ROOT_DIR)/:/workspace/mnt/ -it dream-booth
